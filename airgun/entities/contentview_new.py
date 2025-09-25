@@ -125,6 +125,7 @@ class NewContentViewEntity(BaseEntity):
         view.wait_displayed()
         wait_for(lambda: view.repositories.resources.is_displayed, timeout=10)
         view.repositories.resources.add(content_name)
+        wait_for(lambda: view.repositories.resources.is_displayed, timeout=10)
         return view.repositories.resources.read()
 
     def add_cv(self, ccv_name, cv_name, always_update=False, version=None):
